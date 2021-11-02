@@ -1,0 +1,41 @@
+---
+title: "Sean Yang"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+
+## Welcome to my webpage!
+
+I am a 1st year MS student in Biostatistics with focus on Theory & Method at Mailman School of Public Health.
+
+Here you can view my academic and professional experience, and find some NY restaurant inspections I made.
+
+<img src="images/godfather.jpg" style="width:75%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

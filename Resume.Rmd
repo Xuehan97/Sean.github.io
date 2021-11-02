@@ -1,0 +1,49 @@
+---
+title: "Resume"
+author: "Xuehan Yang"
+date: "2021/11/2"
+output: html_document
+---
+
+## Academic Experience
+
+**Anti-fraud Methods on Big Data in Health Insurance**, Jun 2020-Mar 2021
+
+*  Summarized 4 methods of detecting insurance fraudulence in physicians with a combination of big data and 
+machine learning algorithms from 20+ papers.
+*  Wrote a research report on two experiments in detecting fraudulent physicians based on three datasets from 
+The Centers for Medicare and Medicaid Services (CMS) and explored whether the methods could be used in 
+the Chinese insurance industry.
+
+**Quantifying information asymmetry in acquisition**, Mar 2018-Mar 2020
+
+*  Selected 13K sample companies and expected features from the Wind database as variables.
+*  Constructed six regression models based on modified Two Tiers Stochastic Frontier model with SPSS to 
+quantify the influence of information asymmetry in corporate acquisitions. And used variance decomposition 
+to explain model interpretation ability.
+
+****
+
+## Professional Experience
+
+**Amazon**, Business Intelligence Intern, Jun 2020-Mar 2021
+
+*  Constructed 30+ SQL query templates with Oracle to automatically extracted business data every week, thus 
+highly improved business intelligence.
+*  Independently conducted Black Friday troubleshooting project, filtering unbuyable items, figuring out the 
+mistaken limitations from legal affairs, and making products with high GMV pass through the pipeline. Made 
+300+ items buyable on Global Store which sold 50,000+ units during black Friday.
+*  Used Web scraping to combine products’ ASIN with their legal limitations into one Excel chart with Python,
+for the reference of colleagues in Marketing Team, thus turned a week-long manual work into several minutes.
+*  Built and maintained a well-structured weekly report with Excel to explain reasons for items’ inflow and 
+outflow and other sales fluctuation causes
+
+**Ping An Property & Casualty Insurance Co of China Ltd**, Actuarial Intern, Jun 2019-Sept 2019
+
+*  Set premium rates for 14 insurance products and wrote 14 actuarial reports based on actuarial methods, all of 
+which got approval from the China Banking Regulatory Commission into the insurance market.
+*  Constructed Excel templates with VBA to display monthly income statements and wrote 5 Quality Analysis
+reports based on those data to analyze the performance of different insurance types for the general manager’s
+meeting.
+
+For detailed information, you can click here to see my [resume](Resume_Sean.pdf)
