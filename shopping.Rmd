@@ -1,0 +1,113 @@
+---
+title: "Shopping"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = 0.8,
+  out.width = "90%"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+```{r}
+data("instacart")
+
+order_df = instacart %>% 
+  mutate(as.character(order_dow)) %>% 
+  mutate(
+    order_dow = recode(
+      order_dow,
+      "0" = "Sun",
+      "1" = "Mon",
+      "2" = "Tue",
+      "3" = "Wed",
+      "4" = "Thur",
+      "5" = "Fri",
+      "6" = "Sat"),
+    order_dow = forcats::fct_relevel(order_dow, c("Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"))) %>% 
+  select(department, aisle, product_name, order_dow, order_hour_of_day, days_since_prior_order, order_id) %>% 
+  group_by(department, aisle)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+drinks =
+  order_df %>% 
+  filter(department == "beverages") %>% 
+  group_by(aisle, order_dow) %>% 
+  summarise(mu_hour = round(mean(order_hour_of_day), 1)) %>% 
+  ggplot(aes(x = order_dow, y = mu_hour, group = aisle)) + 
+  geom_point(aes(color = aisle)) +
+  geom_line(aes(color = aisle)) +
+  labs(
+    x = "Day of the week",
+    y = "Average buying time",
+    title = "Buying time among beverages"
+  )
+
+ggplotly(drinks)
+```
+
+From this plot, we can see the variation of order hour of different Beverages during a week.
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+aisle_df = 
+  instacart %>% 
+  group_by(aisle) %>% 
+  summarize(items_count = n()) %>% 
+  filter(items_count >= 30000) %>% 
+  mutate(aisle = forcats::fct_reorder(aisle, items_count)) %>% 
+  ggplot(aes(y = aisle, x = items_count, fill = aisle)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Aisles and the number of items ordered",
+    x = "Number of items",
+    y = "Aisle name") + # Rename the labels
+  scale_x_continuous(
+    breaks = c(40000, 80000, 120000, 150000),
+    labels = c("40000","80000","120000", "150000"))
+
+ggplotly(aisle_df)
+```
+
+From this plot, we can see the number of items ordered in top aisles. 
+
+### Chart C
+
+```{r}
+order_df %>% 
+  group_by(department, order_hour_of_day) %>% 
+  mutate(department = fct_reorder(department, order_hour_of_day)) %>%
+  plot_ly(x = ~department, y = ~ order_hour_of_day, type = "box", color = ~ department, colors = "viridis")
+```
+
+From this plot, we can see the order hour of items in different departments.
