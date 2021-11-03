@@ -11,9 +11,11 @@ output:
 
 I am a 1st year MS student in Biostatistics with focus on Theory & Method at Mailman School of Public Health.
 
-Here you can view my academic and professional experience, and find some NY restaurant inspections I made.
+Here you can view my academic and professional experience, and find some information about online grocery "[Instacart](https://www.instacart.com/)".
 
-<img src="images/godfather.jpg" style="width:75%">
+
+
+<img src="images/godfather.PNG" style="width:85%">
 
 
 

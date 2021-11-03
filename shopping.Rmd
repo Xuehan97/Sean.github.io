@@ -55,31 +55,6 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-drinks =
-  order_df %>% 
-  filter(department == "beverages") %>% 
-  group_by(aisle, order_dow) %>% 
-  summarise(mu_hour = round(mean(order_hour_of_day), 1)) %>% 
-  ggplot(aes(x = order_dow, y = mu_hour, group = aisle)) + 
-  geom_point(aes(color = aisle)) +
-  geom_line(aes(color = aisle)) +
-  labs(
-    x = "Day of the week",
-    y = "Average buying time",
-    title = "Buying time among beverages"
-  )
-
-ggplotly(drinks)
-```
-
-From this plot, we can see the variation of order hour of different Beverages during a week.
-
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r}
 aisle_df = 
   instacart %>% 
   group_by(aisle) %>% 
@@ -99,7 +74,28 @@ aisle_df =
 ggplotly(aisle_df)
 ```
 
-From this plot, we can see the number of items ordered in top aisles. 
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+drinks =
+  order_df %>% 
+  filter(department == "beverages") %>% 
+  group_by(aisle, order_dow) %>% 
+  summarise(mu_hour = round(mean(order_hour_of_day), 1)) %>% 
+  ggplot(aes(x = order_dow, y = mu_hour, group = aisle)) + 
+  geom_point(aes(color = aisle)) +
+  geom_line(aes(color = aisle)) +
+  labs(
+    x = "Day of the week",
+    y = "Average buying time",
+    title = "Buying time among beverages"
+  )
+
+ggplotly(drinks)
+```
 
 ### Chart C
 
@@ -109,5 +105,3 @@ order_df %>%
   mutate(department = fct_reorder(department, order_hour_of_day)) %>%
   plot_ly(x = ~department, y = ~ order_hour_of_day, type = "box", color = ~ department, colors = "viridis")
 ```
-
-From this plot, we can see the order hour of items in different departments.
