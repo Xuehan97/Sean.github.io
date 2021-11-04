@@ -1,8 +1,6 @@
 ---
 title: "Resume"
 author: "Xuehan Yang"
-date: "2021/11/2"
-output: html_document
 ---
 
 ## Academic Experience
